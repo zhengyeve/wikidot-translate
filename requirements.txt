@@ -1,0 +1,18 @@
+google-api-python-client==1.7.4
+google-auth==1.5.1
+google-auth-httplib2==0.0.3
+httplib2==0.11.3
+oauth2==1.9.0.post1
+oauth2client==1.5.2
+opencc-python-reimplemented==0.1.4
+pytz==2018.5
+requests==2.25.1
+
+
+## GCP cloud run
+
+# https://pypi.org/project/Flask
+Flask==2.2.3
+
+# https://pypi.org/project/gunicorn
+gunicorn==20.1.0

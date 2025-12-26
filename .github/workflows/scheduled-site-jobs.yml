@@ -1,0 +1,26 @@
+name: Wikidot - weekly site update
+
+on:
+  # comment out following to disable manual trigger
+  workflow_dispatch:
+  # uncomment the following for schedules
+  # schedule:
+  #   - cron: '45 0 * * 1,3,5' # At 00:45 on Monday, Wednesday, and Friday
+
+env:
+  ENV: GithubScheduled
+
+jobs:
+  site_updates:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag wikidot
+      
+    - name: Run compare_sites
+      run: docker run -e ENV=${{env.ENV}} wikidot python scripts/wikidot.py compare_sites --update_files
+
+    - name: Run convert_site
+      run: docker run -e ENV=${{env.ENV}} wikidot python scripts/wikidot.py convert_site

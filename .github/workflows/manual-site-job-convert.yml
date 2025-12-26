@@ -1,0 +1,18 @@
+name: Wikidot - convert whole site
+on:
+  workflow_dispatch:
+
+env:
+  ENV: GithubManual
+
+jobs:
+  site_updates:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag whitechronicle
+
+    - name: Run convert_site
+      run: docker run -e ENV=${{env.ENV}} whitechronicle python scripts/wikidot.py convert_site
