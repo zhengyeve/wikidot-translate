@@ -53,6 +53,7 @@ Replace wikidot constant accordingly.
 ```
 
 2. Slack webhook credentials
+
 Goto `api/slack.py` update `WEBHOOK_URL` variable.
 
 
@@ -131,7 +132,7 @@ docker build -t wikidot . \
 
 ### Run scirpt in Google Cloud Platform
 
-You can deploy this script to [Google Cloud Run](https://console.cloud.google.com/run)) for futher collaboration and automation.
+You can deploy this script to [Google Cloud Run](https://console.cloud.google.com/run) for futher collaboration and automation.
 
 
 1. Install GCP CLI locally 
